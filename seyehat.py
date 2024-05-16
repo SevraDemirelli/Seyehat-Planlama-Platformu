@@ -290,6 +290,9 @@ class SeyahatUygulamasi:
 
         self.konaklama_goster()
 
+        self.button_kilavuz = tk.Button(master, text="Uygulama Kılavuzu", command=self.kilavuz_goster)
+        self.button_kilavuz.place(relx=1.0, rely=1.0, anchor=tk.SE)
+
     def konaklama_goster(self):
         sehir = self.combobox_sehir.get()
         tur = self.combobox_konaklama.get()
@@ -315,6 +318,26 @@ class SeyahatUygulamasi:
             sehir = self.combobox_sehir.get()
             self.veritabani.yorum_ekle(sehir, pencere)
             self.konaklama_goster()
+
+    def kilavuz_goster(self):
+        kilavuz = """
+        Uygulama Kılavuzu
+
+        1. Şehir seçin: Şehir seçim kutusundan bir şehir seçin.
+
+        2. Türü seçin: Konaklamak istediğiniz türü seçin veya "Tümü" seçeneğini bırakın.
+
+        3. Fiyat aralığını belirleyin: Minimum ve maksimum fiyatları girin veya boş bırakın.
+
+        4. Rating aralığını belirleyin: Minimum ve maksimum rating'i girin veya boş bırakın.
+
+        5. "Konaklama Ara" butonuna tıklayın: Belirlediğiniz kriterlere göre konaklama yerlerini filtreleyin.
+
+        6. "Konaklama Ekle" butonuna tıklayarak yeni bir konaklama yeri ekleyin.
+
+        7. "Yorum Ekle" butonuna tıklayarak bir konaklama yeri için yorum ekleyin.
+        """
+        messagebox.showinfo("Uygulama Kılavuzu", kilavuz)
 
 
 root = tk.Tk()
